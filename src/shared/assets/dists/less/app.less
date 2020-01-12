@@ -1,35 +1,93 @@
-* {
-  margin: 0;
-  padding: 0;
-  font-family: Montserrat, sans-serif;
-}
-/*Grid*/
-.app {
-  display: grid;
-  grid-template-rows: 200px 1fr 50px;
-  .header {
-    grid-row: ~'1/2';
-  }
-  .body {
-    grid-row: ~'2/3';
-  }
-  .footer {
-    grid-row: ~'3/4';
-  }
-}
-/*Style*/
-.app {
-  height: 800px;
-  // background: yellow;
-  .header {
-    background-color: blue;
-  }
-  .body {
+@import "./loader.less";
 
-  }
-  .footer {
 
-  }
+button {
+  height: 30px;
+  margin: 0 5px;
+  background-color: #385d80;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  width: 100px;
+  font-weight: bold;
 }
 
+.blue-eyes .eye-color {
+  fill: #175282;
+}
 
+.sad .mouth {
+  transform: rotate(180deg) scale(.5);
+  transform-origin: 340px 390px;
+}
+
+@keyframes moveEyes {
+  20% {
+    transform: translate(-18px, -20px);
+  }
+
+  40% {
+    transform: translate(0, 0);
+  }
+
+  65% {
+    transform: translate(18px, -20px);
+  }
+}
+
+.move .inner-eye-group {
+  //moveEyes is only variable used in @keyFrames
+  animation: moveEyes 12s infinite;
+}
+
+@keyframes leftWhiskers {
+  20% {
+    transform: rotate(5deg);
+  }
+  60% {
+    transform: rotate(-5deg);
+  }
+}
+
+.move .left-whiskers {
+  animation: leftWhiskers 3s infinite;
+  transform-origin: 325px 350px;
+}
+
+
+@keyframes rightWhiskers {
+  5% {
+    transform: rotate(-2deg);
+  }
+  90% {
+    transform: rotate(7deg);
+  }
+}
+
+.move .right-whiskers {
+  animation: rightWhiskers 3s infinite;
+  transform-origin: 325px 350px;
+}
+
+@keyframes move {
+  20% {
+    transform: rotateY(10deg) rotateX(10deg);
+  }
+  40% {
+    transform: rotateY(25deg) rotateX(10deg);
+  }
+  60% {
+    transform: rotateY(-10deg) rotateX(-10deg);
+  }
+  85% {
+    transform: rotateY(-10deg) rotateX(-16deg);
+  }
+}
+
+.move {
+  animation: move 8s infinite;
+}
+
+.svg-container {
+  perspective: 1000px;
+}
